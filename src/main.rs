@@ -397,40 +397,532 @@
 //    }
 // }
 
-fn main() {
-   //initialize structure
-   let emp1 = Employee{
-      company:String::from("TutorialsPoint"),
-      name:String::from("Mohtashim"),
-      age:50
-   };
-   let emp2 = Employee {
-      company:String::from("TutorialsPoint"),
-      name:String::from("Kannan"),
-      age:32
-   };
-   let elder = who_is_elder(emp1,emp2);
-   println!("elder is:");
+// fn main() {
+//    //initialize structure
+//    let emp1 = Employee{
+//       company:String::from("TutorialsPoint"),
+//       name:String::from("Mohtashim"),
+//       age:50
+//    };
+//    let emp2 = Employee {
+//       company:String::from("TutorialsPoint"),
+//       name:String::from("Kannan"),
+//       age:32
+//    };
+//    let elder = who_is_elder(emp1,emp2);
+//    println!("elder is:");
 
-   //prints details of the elder employee
-   display(elder);
-}
-//accepts instances of employee structure and compares their age
-fn who_is_elder (emp1:Employee,emp2:Employee)->Employee {
-   if emp1.age>emp2.age {
-      return emp1;
-   } else {
-      return emp2;
-   }
-}
-//display name, comapny and age of the employee
-fn display( emp:Employee) {
-   println!("Name is :{} company is {} age is {}",emp.name,emp.company,emp.age);
-}
-//declare a structure
-struct Employee {
-   name:String,
-   company:String,
-   age:u32
-}
+//    //prints details of the elder employee
+//    display(elder);
+// }
+// //accepts instances of employee structure and compares their age
+// fn who_is_elder (emp1:Employee,emp2:Employee)->Employee {
+//    if emp1.age>emp2.age {
+//       return emp1;
+//    } else {
+//       return emp2;
+//    }
+// }
+// //display name, comapny and age of the employee
+// fn display( emp:Employee) {
+//    println!("Name is :{} company is {} age is {}",emp.name,emp.company,emp.age);
+// }
+// //declare a structure
+// struct Employee {
+//    name:String,
+//    company:String,
+//    age:u32
+// }
+
+
+
+//** Enum 
+// **The `derive` attribute automatically creates the implementation
+// ** required to make this `enum` printable with `fmt::Debug`.
+// #[derive(Debug)]
+// enum GenderCategory {
+//    Male,Female
+// }
+// fn main() {
+//    let male = GenderCategory::Male;
+//    let female = GenderCategory::Female;
+
+//    println!("{:?}",male);
+//    println!("{:?}",female);
+// }
+
+//** Struc Enum combined 
+// The `derive` attribute automatically creates the 
+// implementation
+// required to make this `enum` printable with 
+// `fmt::Debug`.
+
+// #[derive(Debug)]
+// enum GenderCategory {
+//    Male,Female
+// }
+// #[derive(Debug)]
+// struct Person {
+//    name:String,
+//    gender:GenderCategory
+// }
+
+// fn main() {
+//    let p1 = Person {
+//       name:String::from("Vijay"),
+//       gender:GenderCategory::Male
+//    };
+//    let p2 = Person {
+//       name:String::from("Anyy"),
+//       gender:GenderCategory::Female
+//    };
+//    println!("{:?}",p1);
+//    println!("{:?}",p2);
+// }
+
+//** enums
+
+// fn main() {
+//    enum Day{
+//       Monday,
+//       Tuesday, 
+//       Wednesday,
+//       Thursday,
+//       Friday,
+//       Saturday,
+//       Sunday
+//    }
+
+//    impl Day {
+//       fn is_weekend(&self) -> bool {
+//          match self {
+//             Day::Saturday | Day:: Sunday => true,
+//             _=> false
+//          }
+//       }
+//    }
+
+//    let today:Day = Day::Saturday;
+//    match today {
+//       Day::Monday => println!("Everyone hates Monday"),
+//       Day::Tuesday => println!("Hectic day"),
+//       Day::Wednesday => println!("Learning Day"),
+//       Day::Thursday => println!("Pay Day"),
+//       Day::Friday => println!("almost weekend"),
+//       Day::Saturday => println!("weekend"),
+//       Day::Sunday => println!("weekend"),
+//    }
+//    println!("IS today the weekend {}", today.is_weekend())
+// }
+
+// fn main() {
+//    let result = is_even(3);
+//    println!("{:?}",result);
+//    println!("{:?}",is_even(30));
+// }
+// fn is_even(no:i32)->Option<bool> {
+//    if no%2 == 0 {
+//       Some(true)
+//    } else {
+//       None
+//    }
+// }
+
+// // ** Vector 
+// fn main() {
+//    let vec1:Vec<i32> = Vec::new();
+
+//    let mut vec2: Vec<i32> = vec![1,2,3,4];
+//    vec2.push(5);
+
+//    println!("1st : {}", vec2[0]);
+
+//    let second: &i32 = &vec2[1];
+//    match vec2.get(index: 1){
+//       Some(second: &i32) => println!("2nd : {}",second),
+//       None => println!("Mo 2nd value"),
+//    }
+
+//    for i: &mut i32 in &mut vec2 {
+//       *i *= 2;
+//    }
+
+//    for i: &32 in &vec2 {
+//       println!("{}", i);
+//    }
+
+//    println!("Vec Length {}", vec2.len());
+//    println!("pop : {:?}", vec2.pop());
+
+// }
+
+//** Match Statement and Enum
+
+// enum CarType {
+//    Hatch,
+//    Sedan,
+//    SUV
+// }
+// fn print_size(car:CarType) {
+//    match car {
+//       CarType::Hatch => {
+//          println!("Small sized car");
+//       },
+//       CarType::Sedan => {
+//          println!("medium sized car");
+//       },
+//       CarType::SUV =>{
+//          println!("Large sized Sports Utility car");
+//       }
+//    }
+// }
+
+// fn main(){
+//    print_size(CarType::SUV);
+//    print_size(CarType::Hatch);
+//    print_size(CarType::Sedan);
+// }
+
+//** Match with Option
+
+// fn main() {
+//    match is_even(5) {
+//       Some(data) => {
+//          if data==true {
+//             println!("Even no");
+//          }
+//       },
+//       None => {
+//          println!("not even");
+//       }
+//    }
+// }
+// fn is_even(no:i32)->Option<bool> {
+//    if no%2 == 0 {
+//       Some(true)
+//    } else {
+//       None
+//    }
+// }
+
+//** Match & Enum with Data Type
+
+// #[derive(Debug)]
+// enum GenderCategory {
+//    Name(String),UsrId(i32)
+// }
+
+// fn main() {
+//    let p1 = GenderCategory::Name(String::from("vijay"));
+//    let p2 = GenderCategory::UsrId(100);
+//    println!("{:?}",p1);
+//    println!("{:?}",p2);
+//    match p1 {
+//       GenderCategory::Name(val)=> {
+//          println!("{}",val);
+//       }
+//       GenderCategory::UsrId(val)=> {
+//          println!("{}",val);
+//       }
+//    }
+// }
+
+// ** Illustration: Defining a Module
+// pub mod movies {
+//    pub fn play(name:String) {
+//       println!("Playing movie {}",name);
+//    }
+// }
+// fn main(){
+//    movies::play("Vijay and Kumar".to_string());
+// }
+
+//** Using Use Keyword
+// pub mod movies {
+//    pub fn play(name:String) {
+//       println!("Playing movie {}",name);
+//    }
+// }
+// use movies::play; // using use Keyword
+// fn main(){
+//    play("Vijay and Kumar ".to_string());
+// }
+
+//** Nested Modules
+
+// pub mod movies {
+//    pub mod english {
+//       pub mod comedy {
+//          pub fn play(name:String) {
+//             println!("Playing comedy movie {}",name);
+//          }
+//       }
+//    }
+// }
+// use movies::english::comedy::play; 
+// // importing a public module
+
+// fn main() {
+//    // short path syntax
+//    play("vijay and Kumar".to_string());
+//    play("Hera Pheri".to_string());
+
+//    //full path syntax
+//    movies::english::comedy::play("Golmaal!".to_string());
+// }
+
+//** Illustration Creating A vector
+
+// fn main() {
+//    let mut v = Vec::new();
+//    v.push(20);
+//    v.push(30);
+//    v.push(40);
+
+//    println!("size of vector is :{}",v.len());
+//    println!("{:?}",v);
+// }
+
+//**Creating a Vector - vec! Macro
+
+// fn main() {
+//    let v = vec![1,2,3];
+//    println!("{:?}",v);
+// }
+
+//** Illustration: push()
+
+// fn main() {
+//    let mut v = Vec::new();
+//    v.push(20);
+//    v.push(30);
+//    v.push(40);
+   
+//    println!("{:?}",v);
+// }
+
+//** Illustration: Remove()
+
+// fn main() {
+//    let mut v = vec![10,20,30];
+//    v.remove(0);
+//    println!("{:?}",v);
+// }
+
+// ** Illustration - contains()
+
+// fn main() {
+//    let v = vec![10,20,30];
+//    if v.contains(&20) {
+//       println!{"found 20"}
+//    }
+//    println!{"{:?}", v};
+// }
+
+// ** Illustration: len()
+
+// fn main() {
+//    let v = vec![1,2,3];
+//    println!("size of vector is :{}",v.len());
+// }
+
+// fn main() {
+//    let mut v = Vec::new();
+//    v.push(20);
+//    v.push(30);
+
+//    println!("{:?}",v[0]);
+// }
+
+// fn main() {
+//    let mut v = Vec::new();
+//    v.push(20);
+//    v.push(30);
+//    v.push(40);
+//    v.push(500);
+
+//    for i in &v {
+//       println!("{}",i);
+//    }
+//    println!("{:?}",v);
+// }
+
+// ** HashMap structure
+
+// use std::collections::HashMap;
+// fn main(){
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+//    println!("{:?}",stateCodes);
+// }
+
+// use std::collections::HashMap;
+// fn main() {
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+//    println!("size of map is {}",stateCodes.len());
+// }
+
+// use std::collections::HashMap;
+// fn main() {
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+//    println!("size of map is {}",stateCodes.len());
+//    println!("{:?}",stateCodes);
+
+//    match stateCodes.get(&"KL") {
+//       Some(value)=> {
+//          println!("Value for key KL is {}",value);
+//       }
+//       None => {
+//          println!("nothing found");
+//       }
+//    }
+// }
+
+// use std::collections::HashMap;
+// fn main() {
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+
+//    for (key, val) in stateCodes.iter() {
+//       println!("key: {} val: {}", key, val);
+//    }
+// }
+
+// Illustration: contains_key()
+
+// use std::collections::HashMap;
+// fn main() {
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+//    stateCodes.insert("GJ","Gujarat");
+
+//    if stateCodes.contains_key(&"GJ") {
+//       println!("found key");
+//    }
+// }
+
+// Illustration: remove()
+
+// use std::collections::HashMap;
+// fn main() {
+//    let mut stateCodes = HashMap::new();
+//    stateCodes.insert("KL","Kerala");
+//    stateCodes.insert("MH","Maharashtra");
+//    stateCodes.insert("GJ","Gujarat");
+
+//    println!("length of the hashmap {}",stateCodes.len());
+//    stateCodes.remove(&"GJ");
+//    println!("length of the hashmap after remove() {}",stateCodes.len());
+// }
+
+//** Hash Set
+
+// Illustration - insert()
+
+// use std::collections::HashSet;
+// fn main() {
+//    let mut names = HashSet::new();
+
+//    names.insert("Mohtashim");
+//    names.insert("Kannan");
+//    names.insert("TutorialsPoint");
+//    names.insert("Mohtashim");//duplicates not added
+
+//    println!("{:?}",names);
+// }
+
+//length
+
+// use std::collections::HashSet;
+// fn main() {
+//    let mut names = HashSet::new();
+//    names.insert("Mohtashim");
+//    names.insert("Kannan");
+//    names.insert("TutorialsPoint");
+//    println!("size of the set is {}",names.len());
+// }
+
+
+//** iterate in arbitrary order
+// use std::collections::HashSet;
+// fn main() {
+//    let mut names = HashSet::new();
+//    names.insert("Mohtashim");
+//    names.insert("Kannan");
+//    names.insert("TutorialsPoint");
+//    names.insert("Mohtashim");
+
+//    for name in names.iter() {
+//       println!("{}",name);
+//    }
+// }
+
+// **Illustration: get()
+
+// use std::collections::HashSet;
+// fn main() {
+//    let mut names = HashSet::new();
+//    names.insert("vijay");
+//    names.insert("Kiran");
+//    names.insert("Samrath");
+//    names.insert("Samrath");
+
+//    match names.get(&"Samrath"){
+//       Some(value)=>{
+//          println!("found {}",value);
+//       }
+//       None =>{
+//          println!("not found");
+//       }
+//    }
+//    println!("{:?}",names);
+// }
+
+// Illustration - contains()
+
+// use std::collections::HashSet;
+
+// fn main() {
+//    let mut names = HashSet::new();
+//    names.insert("Vijay");
+//    names.insert("Kiran");
+//    names.insert("Samrath");
+
+//    if names.contains(&"Samrath") {
+//       println!("found name");
+//    }  
+// }
+
+//** Remove 
+// use std::collections::HashSet;
+
+// fn main() {
+//    let mut names = HashSet::new();
+//    names.insert("Vijay");
+//    names.insert("Kiran");
+//    names.insert("Samrath");
+//    println!("length of the Hashset: {}",names.len());
+//    names.remove(&"Kiran");
+//    println!("length of the Hashset after remove() : {}",names.len());
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
