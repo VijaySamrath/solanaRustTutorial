@@ -913,6 +913,221 @@
 //    println!("length of the Hashset after remove() : {}",names.len());
 // }
 
+//** Generic Collection 
+
+// fn main(){
+//     let mut vector_integer: Vec<i32> = vec![20,30];
+//     vector_integer.push(40);
+//     println!("{:?}", vector_integer)
+// }
+
+// ** Illustration: Generic Structure
+
+// struct Data<T> {
+//    value:T,
+// }
+// fn main() {
+//    //generic type of i32
+//    let t:Data<i32> = Data{value:350};
+//    println!("value is :{} ",t.value);
+//    //generic type of String
+//    let t2:Data<String> = Data{value:"Tom".to_string()};
+//    println!("value is :{} ",t2.value);
+// }
+
+// use std::fmt::Display;
+
+// fn main(){
+//    print_pro(10 as u8);
+//    print_pro(20 as u16);
+//    print_pro("Hello TutorialsPoint");
+// }
+
+// fn print_pro<T:Display>(t:T){
+//    println!("Inside print_pro generic function:");
+//    println!("{}",t);
+// }
+
+// use std::fmt::Display;
+
+// fn main(){
+//    print_pro(10 as u8);
+//    print_pro(20 as u16);
+//    print_pro("Hello TutorialsPoint");
+// }
+
+// fn print_pro<T:Display>(t:T){
+//    println!("Inside print_pro generic function:");
+//    println!("{}",t);
+// }
+
+// Illustration − Reading from the Console − stdin()
+
+// fn main(){
+//    let mut line = String::new();
+//    println!("Enter your name :");
+//    let b1 = std::io::stdin().read_line(&mut line).unwrap();
+//    println!("Hello , {}", line);
+//    println!("no of bytes read , {}", b1);
+// }
+
+// use std::io::Write;
+// fn main() {
+//    let b1 = std::io::stdout().write("Vinayak ".as_bytes()).unwrap();
+//    let b2 = std::io::stdout().write(String::from("Samrath").as_bytes()).unwrap();
+//    std::io::stdout().write(format!("\nbytes written {}",(b1+b2)).as_bytes()).unwrap();
+// }
+
+// fn main(){
+//     let cmd_line = std::env::args();
+//     println!("No of elements in arguments is :{}",cmd_line.len()); 
+//     //print total number of values passed
+//     for arg in cmd_line {
+//        println!("[{}]",arg); //print all values passed 
+//     //    as commandline arguments
+//     }
+// }
+
+// fn main(){
+//     let cmd_line = std::env::args();
+//     println!("No of elements in arguments is 
+//     :{}",cmd_line.len()); 
+//     // total number of elements passed
+ 
+//     let mut sum = 0;
+//     let mut has_read_first_arg = false;
+ 
+//     //iterate through all the arguments and calculate their sum
+ 
+//     for arg in cmd_line {
+//        if has_read_first_arg { //skip the first argument since it is the exe file name
+//           sum += arg.parse::<i32>().unwrap();
+//        }
+//        has_read_first_arg = true; 
+//        // set the flag to true to calculate sum for the subsequent arguments.
+//     }
+//     println!("sum is {}",sum);
+// }
+
+//** Iterators
+
+//  fn main() {
+//     let a = [10,20,30];
+
+//     let mut iter = a.iter();
+//     println!("{:?}", iter);
+
+//     println!("{:?}",iter.next());
+//     println!("{:?}",iter.next());
+//     println!("{:?}",iter.next());
+//     println!("{:?}",iter.next());
+//  }
+
+// using for in syntax for iteration
+
+// fn main() {
+//     let a = [10,20,30];
+
+//     // let iter = a.iter();
+//     for data in a.iter(){
+//         println!("{}\t",data);
+//     }
+// }
+
+//** Illustration:iter()
+
+//  fn main() {
+//     let names = vec!["vijay","Kiran", "Samrath"];
+//     for name in names.iter() {
+//         match name {
+//             &"Kiran" => println!("I have matched with the name"),
+//             _=> println!("Hello {}", name),
+//         }
+//     }
+//     println!("{:?}", names);
+//     // Reusing the collection after iteration
+//  }
+
+//**Illustration - into_iter()
+
+//  fn main() {
+//     let names = ["Vijay", "Kiran", "Samrath"];
+//     for name in names.into_iter(){
+//         match name{
+//             "Kiran" => println!("I am here Kiran"),
+//             _ => println!("Hello{}", name),
+//         }
+//     }
+//     // cannot reuse the collection after iteration
+//     //println!("{:?}",names); 
+//     //Error:Cannot access after ownership move
+//  }
+
+// **Illustration - for and iter_mut()
+
+// fn main() {
+//     let mut names = vec!["Kannan", "Mohtashim", "Kiran"];
+//     for name in names.iter_mut() {
+//        match name {
+//           &mut "Mohtashim" => println!("There is a rustacean among us!"),
+//           _ => println!("Hello {}", name),
+//        }
+//     }
+//     println!("{:?}",names);
+//     //// reusing the collection after iteration
+//  }
+
+//** Illustration - for and iter_mut()
+
+//  fn main() {
+//     let mut names = vec!["Vijay", "Kiran","Samrath"];
+//     for name in names.iter_mut(){
+//         match name {
+//             &mut "Kiran" => println!("So here are you Kiran"),
+//             _=> println!("Hello {}", name),
+//         }
+//     }
+//     println!("{:?}", names);
+//         //// reusing the collection after iteration
+
+//  }
+
+// **Clousure
+
+// syntax :
+// let closure_function = |parameter| {
+//     //logic
+//  }
+
+// fn main() {
+//     let is_even = |x| {
+//         x%2 == 0
+//     };
+
+//     let no = 10;
+//     println!("{} is even ? {} ", no, is_even(no));
+// }
+
+fn main(){
+    let val = 10;
+
+    let numbers = |x| {
+        x + val
+    };
+    println!("{}",numbers(2));
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
