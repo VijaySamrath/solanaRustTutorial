@@ -1108,19 +1108,74 @@
 //     println!("{} is even ? {} ", no, is_even(no));
 // }
 
-fn main(){
-    let val = 10;
+// fn main(){
+//     let val = 10;
 
-    let numbers = |x| {
-        x + val
-    };
-    println!("{}",numbers(2));
-}
+//     let numbers = |x| {
+//         x + val
+//     };
+//     println!("{}",numbers(2));
+// }
+
+//* Box 
+
+// fn main() {
+//     let var_i32 = 8;
+//     let b = Box::new(var_i32);
+//     println!("b ={}", b);
+// }
+
+// Dereference
+
+// fn main() {
+//     let x = 6;
+
+//     let y = Box::new(x);
+
+//     println!("{}", 6==x);
+//     println!("{}", 6==*y);
+
+//}
+
+//**THread
+
+// // import the necessary modules
+// use std::thread;
+// use std::time::Duration;
+
+// fn main() {
+
+//     thread::spawn( || {
+//         for i in 1..5 {
+//             println!("hi number {} from the spawned thread!", i);
+//             thread::sleep(Duration::from_millis(1));
+//         }
+
+//     });
+
+//     for i in 1..5 {
+//         println!("hi number {} from the main thread!", i);
+//         thread::sleep(Duration::from_millis(1));
+//      }
+// }
 
 
+// Why Rust?
+// Rust focuses on three goals −
 
+// Safety
+// Speed
+// Concurrency
+// The language was designed for developing highly reliable and fast software in a simple way. Rust can be used to write high-level programs down to hardware-specific programs.
 
+// Performance
+// Rust programming language does not have a Garbage Collector (GC) by design. This improves the performance at runtime.
 
+// Memory safety at compile time
+// Software built using Rust is safe from memory issues like dangling pointers, buffer overruns and memory leaks.
+
+// Multi-threaded applications
+// Rust’s ownership and memory safety rules provide concurrency without data races.
 
 
 
